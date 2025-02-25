@@ -7,7 +7,9 @@
 </head>
 
 <body>
-    Hiiiiiii
+    <h1>
+        ${khoa}
+    </h1>
 </body>
 
 </html>
