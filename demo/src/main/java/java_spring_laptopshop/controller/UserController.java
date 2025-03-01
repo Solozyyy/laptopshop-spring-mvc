@@ -1,5 +1,7 @@
 package java_spring_laptopshop.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 import java_spring_laptopshop.domain.*;
-import java_spring_laptopshop.repository.UserRepository;
+//import java_spring_laptopshop.repository.UserRepository;
 import java_spring_laptopshop.service.UserService;
 
 @Controller
@@ -27,6 +29,8 @@ public class UserController {
     public String getHomePage() {
         // String val = this.userService.HandleHello();
         // model.addAttribute("khoa", val);
+        List<User> arrUser = this.userService.getAllUserByGmail("1@gmail.com");
+        System.out.println(arrUser);
         return "test";
     }
 
