@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java_spring_laptopshop.domain.*;
 //import java_spring_laptopshop.repository.UserRepository;
 import java_spring_laptopshop.service.UserService;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -34,18 +35,23 @@ public class UserController {
         return "test";
     }
 
-    @RequestMapping("/admin/user")
-    public String getUser(Model model) {
+    @RequestMapping("/admin/user/create")
+    public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
         return "admin/user/create";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
-    public String createUser(Model model, @ModelAttribute("newUser") User khoa) {
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
+    public String handleCreateUser(Model model, @ModelAttribute("newUser") User khoa) {
         System.out.println(khoa);
         // this.userRepository.save(khoa);
         this.userService.handleSaveUser(khoa);
         return "test";
+    }
+
+    @RequestMapping("/admin/user")
+    public String requestMethodName() {
+        return "/admin/user/table";
     }
 
 }

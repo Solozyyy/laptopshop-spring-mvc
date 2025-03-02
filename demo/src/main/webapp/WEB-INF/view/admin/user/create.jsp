@@ -31,7 +31,7 @@
                         <div class="col-md-6 col-12 mx-auto">
                             <h3>CREATE USER</h3>
                             <hr>
-                            <form:form action="/admin/user/create1" method="post" modelAttribute="newUser">
+                            <form:form action="/admin/user/create" method="post" modelAttribute="newUser">
                                 <div class="mb-3">
                                     <label for="form-label">Email:</label>
                                     <form:input type="email" class="form-control" path="email" />
@@ -53,7 +53,7 @@
                                     <form:input type="text" class="form-control" path="address" />
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary">Create a user</button>
                             </form:form>
                         </div>
             </body>
