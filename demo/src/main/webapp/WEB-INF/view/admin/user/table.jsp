@@ -30,126 +30,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1@gmail.com</td>
-                                        <td>khoadwad</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>312332133</td>
-                                        <td>312321</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1@gmail.com</td>
-                                        <td>khoadwad</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>312332133</td>
-                                        <td>312321</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1@gmail.com</td>
-                                        <td>khoadwad</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>312332133</td>
-                                        <td>312321</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1@gmail.com</td>
-                                        <td>khoadwad</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>312332133</td>
-                                        <td>312321</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1@gmail.com</td>
-                                        <td>khoadwad</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>312332133</td>
-                                        <td>312321</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1@gmail.com</td>
-                                        <td>khoadwad</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>312332133</td>
-                                        <td>312321</td>
-                                        <td class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-success">View</button>
-                                            <button type="submit" class="btn btn-danger">Update</button>
-                                            <button type="submit" class="btn btn-warning">Delete</button>
-                                        </td>
-                                    </tr>
+                                    <!-- render data -->
+                                    <c:forEach var="user" items="${Users}">
+                                        <tr>
+                                            <td>${user.id}</td>
+                                            <td>${user.email}</td>
+                                            <td>${user.fullName}</td>
+                                            <td class="d-flex gap-2">
+                                                <button type="submit" class="btn btn-success">View</button>
+                                                <button type="submit" class="btn btn-danger">Update</button>
+                                                <button type="submit" class="btn btn-warning">Delete</button>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
 
                                 </tbody>
                         </div>

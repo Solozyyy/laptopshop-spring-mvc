@@ -46,11 +46,14 @@ public class UserController {
         System.out.println(khoa);
         // this.userRepository.save(khoa);
         this.userService.handleSaveUser(khoa);
-        return "test";
+        // redirect + url chu khong phai file's path
+        return "redirect:/admin/user";
     }
 
     @RequestMapping("/admin/user")
-    public String requestMethodName() {
+    public String requestMethodName(Model model) {
+        List<User> users = this.userService.getAllUsers();
+        model.addAttribute("Users", users);
         return "/admin/user/table";
     }
 
