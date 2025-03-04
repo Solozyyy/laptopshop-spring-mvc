@@ -34,23 +34,23 @@
                             <form:form action="/admin/user/create" method="post" modelAttribute="newUser">
                                 <div class="mb-3">
                                     <label for="form-label">Email:</label>
-                                    <form:input type="email" class="form-control" path="email" />
+                                    <form:input type="email" class="form-control" path="email" required="false" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="form-label">Password:</label>
-                                    <form:input type="password" class="form-control" path="password" />
+                                    <form:input type="password" class="form-control" path="password" required="false" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="form-label">Phone Number:</label>
-                                    <form:input type="text" class="form-control" path="phone" />
+                                    <form:input type="text" class="form-control" path="phone" required="false" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="form-label">Full Name:</label>
-                                    <form:input type="text" class="form-control" path="fullName" />
+                                    <form:input type="text" class="form-control" path="fullName" required="false" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="form-label">Address:</label>
-                                    <form:input type="text" class="form-control" path="address" />
+                                    <form:input type="text" class="form-control" path="address" required="false" />
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Create a user</button>
