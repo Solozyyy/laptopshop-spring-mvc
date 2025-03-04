@@ -94,6 +94,7 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
+    // Get delete user page
     @GetMapping("/admin/user/delete/{id}")
     public String getDeleteUserPage(Model model, @PathVariable long id) {
         // User user = this.userService.getUserById(id);
@@ -104,6 +105,7 @@ public class UserController {
         return "/admin/user/delete";
     }
 
+    // action for delete button
     @PostMapping("admin/user/delete")
     public String postDeleteUser(Model model, @ModelAttribute("deleteUser") User current) {
         // model.addAttribute("currentUser", current);
