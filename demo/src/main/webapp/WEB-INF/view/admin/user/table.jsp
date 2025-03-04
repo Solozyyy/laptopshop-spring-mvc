@@ -37,9 +37,11 @@
                                             <td>${user.email}</td>
                                             <td>${user.fullName}</td>
                                             <td class="d-flex gap-2">
-                                                <button type="submit" class="btn btn-success">View</button>
-                                                <button type="submit" class="btn btn-danger">Update</button>
-                                                <button type="submit" class="btn btn-warning">Delete</button>
+                                                <a href="/admin/user/show/${user.id}" class="btn btn-success">View</a>
+                                                <a href="/admin/user/update/${user.id}"
+                                                    class="btn btn-warning">Update</a>
+                                                <a href="/admin/user/delete/${user.id}"
+                                                    class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
