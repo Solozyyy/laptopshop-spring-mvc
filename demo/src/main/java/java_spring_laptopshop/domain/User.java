@@ -4,7 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -21,6 +25,16 @@ public class User {
     private String phone;
     private String avatar;
     // roleid
+
+    // join with table role
+    // many user -> to one -> role
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    // join with table order
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
     public User(long id, String email, String password, String fullName, String address, String phone, String avatar) {
         this.id = id;
