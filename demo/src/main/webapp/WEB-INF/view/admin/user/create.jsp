@@ -23,6 +23,7 @@
                         });
                     }); 
                 </script>
+                <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
 
             <body>
@@ -43,7 +44,7 @@
                                             <h3>CREATE USER</h3>
                                             <hr>
                                             <form:form action="/admin/user/create" method="post"
-                                                modelAttribute="newUser" class="row">
+                                                modelAttribute="newUser" class="row" enctype="multipart/form-data">
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Email:</label>
                                                     <form:input type="email" class="form-control" path="email"
@@ -71,21 +72,21 @@
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Role:</label>
-                                                    <select class="form-select">
-                                                        <option value="ADMIN">Admin</option>
-                                                        <option value="USER">User</option>
-                                                    </select>
+                                                    <form:select class="form-select" path="role.name">
+                                                        <form:option value="ADMIN">ADMIN</form:option>
+                                                        <form:option value="USER">USER</form:option>
+                                                    </form:select>
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label for="avatarFile" class="form-label">Avatar:</label>
                                                     <input class="form-control" type="file" id="avatarFile"
-                                                        accept=".png, .jpg, .jpeg">
+                                                        accept=".png, .jpg, .jpeg" name="imagesFile">
                                                 </div>
                                                 <div class="col-12 mb-3">
                                                     <img style="max-height: 250px; display: none;" alt="avatar preview"
                                                         id="avatarPreview" />
                                                 </div>
-                                                <div class="col-12 md-5">
+                                                <div class="col-12 mb-5">
                                                     <button type="submit" class="btn btn-primary">Create a user</button>
                                                 </div>
                                             </form:form>
