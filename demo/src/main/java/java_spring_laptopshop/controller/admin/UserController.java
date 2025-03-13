@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.ServletContext;
 import java_spring_laptopshop.domain.*;
+import java_spring_laptopshop.service.UploadService;
 //import java_spring_laptopshop.repository.UserRepository;
 import java_spring_laptopshop.service.UserService;
 //import org.springframework.web.bind.annotation.RequestParam;
@@ -29,15 +30,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController {
 
     private final UserService userService;
-    private final ServletContext servletContext;
+    private final UploadService uploadService;
     // private final UserRepository userRepository;
 
     public UserController(UserService userService
     // , UserRepository userRepository
-            , ServletContext servletContext) {
+            , UploadService uploadService) {
         this.userService = userService;
         // this.userRepository = userRepository;
-        this.servletContext = servletContext;
+        this.uploadService = uploadService;
     }
 
     @RequestMapping("/")
@@ -59,26 +60,7 @@ public class UserController {
     public String handleCreateUser(Model model,
             @RequestParam("imagesFile") MultipartFile file,
             @ModelAttribute("newUser") User khoa) {
-        byte[] bytes;
-        try {
-            bytes = file.getBytes();
-            String rootPath = this.servletContext.getRealPath("/resources/images");
-
-            File dir = new File(rootPath + File.separator + "avatar");
-            if (!dir.exists())
-                dir.mkdirs();
-
-            // Create the file on server
-            File serverFile = new File(dir.getAbsolutePath() + File.separator +
-                    +System.currentTimeMillis() + "-" + file.getOriginalFilename());
-
-            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-            stream.write(bytes);
-            stream.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        String avartar = this.uploadService.handleSaveUploadFile(file, "avatar");
         // this.userRepository.save(khoa);
         // this.userService.handleSaveUser(khoa);
         // redirect + url chu khong phai file's path
