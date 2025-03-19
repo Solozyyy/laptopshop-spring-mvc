@@ -27,34 +27,50 @@
                 </style>
             </head>
 
-            <body>
-                <div class="container mt-5">
-                    <div class="row">
-                        <div class="col-md-6 col-12 mx-auto">
-                            <h3>Update user</h3>
-                            <hr />
-                            <form:form action="/admin/user/update" method="post" modelAttribute="newUser">
-                                <div class="mb-3" style="display: none;">
-                                    <label for="form-label">ID:</label>
-                                    <form:input type="text" class="form-control" path="id" />
+            <body class="sb-nav-fixed">
+                <jsp:include page="../layout/header.jsp" />
+                <div id="layoutSidenav">
+                    <jsp:include page="../layout/sidebar.jsp" />
+                    <div id="layoutSidenav_content">
+                        <main>
+                            <div class="container mt-5">
+                                <div class="row">
+                                    <div class="col-md-6 col-12 mx-auto">
+                                        <h3>Update user</h3>
+                                        <hr />
+                                        <form:form action="/admin/user/update" method="post" modelAttribute="newUser">
+                                            <div class="mb-3" style="display: none;">
+                                                <label for="form-label">ID:</label>
+                                                <form:input type="text" class="form-control" path="id" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="form-label">Email:</label>
+                                                <form:input type="email" class="form-control" path="email"
+                                                    disabled="true" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="form-label">Full name:</label>
+                                                <form:input type="text" class="form-control" path="fullName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="form-label">Address: </label>
+                                                <form:input type="text" class="form-control" path="address" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="form-label">Phone number</label>
+                                                <form:input type="text" class="form-control" path="phone" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </form:form>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="form-label">Email:</label>
-                                    <form:input type="email" class="form-control" path="email" disabled="true" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="form-label">Full name:</label>
-                                    <form:input type="text" class="form-control" path="fullName" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="form-label">Address: </label>
-                                    <form:input type="text" class="form-control" path="address" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="form-label">Phone number</label>
-                                    <form:input type="text" class="form-control" path="phone" />
-                                </div>
-                                <button type="submit" class="btn btn-primary">Update</button>
-                            </form:form>
-                        </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                    crossorigin="anonymous"></script>
+                <script src="/js/scripts.js"></script>
             </body>
+
+            </html>

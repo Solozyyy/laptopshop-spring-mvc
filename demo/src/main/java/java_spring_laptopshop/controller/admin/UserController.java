@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.List;
 //import java.util.Optional;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,17 +32,19 @@ public class UserController {
 
     private final UserService userService;
     private final UploadService uploadService;
+    private final PasswordEncoder passwordEncoder;
     // private final UserRepository userRepository;
 
     public UserController(UserService userService
     // , UserRepository userRepository
-            , UploadService uploadService) {
+            , UploadService uploadService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         // this.userRepository = userRepository;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String getHomePage() {
         // String val = this.userService.HandleHello();
         // model.addAttribute("khoa", val);
@@ -53,21 +56,25 @@ public class UserController {
     @GetMapping("/admin/user/create")
     public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
-        return "admin/user/create";
+        return "/admin/user/create";
     }
 
     @PostMapping(value = "/admin/user/create")
     public String handleCreateUser(Model model,
             @RequestParam("imagesFile") MultipartFile file,
             @ModelAttribute("newUser") User khoa) {
-        String avartar = this.uploadService.handleSaveUploadFile(file, "avatar");
+        String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
+        String hashPassword = this.passwordEncoder.encode(khoa.getPassword());
         // this.userRepository.save(khoa);
-        // this.userService.handleSaveUser(khoa);
         // redirect + url chu khong phai file's path
+        khoa.setAvatar(avatar);
+        khoa.setPassword(hashPassword);
+        khoa.setRole(this.userService.getRoleByName(khoa.getRole().getName()));
+        this.userService.handleSaveUser(khoa);
         return "redirect:/admin/user";
     }
 
-    @RequestMapping("/admin/user")
+    @GetMapping("/admin/user")
     public String getTableUsers(Model model) {
         List<User> users = this.userService.getAllUsers();
         model.addAttribute("Users", users);
